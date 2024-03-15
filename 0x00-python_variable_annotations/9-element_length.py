@@ -1,4 +1,4 @@
-#!/usr/bin/env pyhton3
+#!/usr/bin/env python3
 """
 Type-annotated function element_length that takes a sequence
 and returns a list of tuples.
