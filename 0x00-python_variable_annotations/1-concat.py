@@ -1,3 +1,4 @@
+
 """Module that concatenates two strings."""
 
 
