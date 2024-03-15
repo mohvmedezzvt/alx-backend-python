@@ -4,10 +4,10 @@ Type-annotated function element_length that takes a sequence
 and returns a list of tuples.
 """
 
-from typing import List, Tuple, Sequence
+from typing import List, Tuple, Iterable, Sequence
 
 
-def element_length(lst: Sequence[Sequence]) -> List[Tuple[Sequence, int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
     Return a list of tuples containing the length of each element in lst.
 
