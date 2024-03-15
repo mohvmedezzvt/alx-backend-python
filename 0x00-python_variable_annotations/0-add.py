@@ -1,4 +1,5 @@
-"""Module to add two floats and return the result in float"""
+#!bin/usr/env python3
+"""Module to add two floats"""
 
 
 def add(a: float, b: float) -> float:
