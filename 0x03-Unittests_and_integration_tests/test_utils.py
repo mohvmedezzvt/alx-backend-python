@@ -55,7 +55,6 @@ class TestGetJson(unittest.TestCase):
             ("http://holberton.io", {"payload": False}),
         ]
     )
-
     @patch("requests.get")
     def test_get_json(self, test_url, test_payload, mock_get) -> None:
         """Test get_json"""
@@ -70,27 +69,31 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """Test memoize"""
+    """Class for Testing Memoize"""
 
     def test_memoize(self):
-        """Test memoize"""
+        """
+        Test memoize method tests the functionality of the `memoize` decorator.
+        It creates a `TestClass` instance and checks if the `a_property`
+        method is memoized correctly by mocking the `a_method` method.
+        """
+
         class TestClass:
-            """Test class"""
+
             def a_method(self):
-                """a_method"""
                 return 42
 
             @memoize
             def a_property(self):
-                """a_property"""
                 return self.a_method()
 
-        with patch.object(TestClass, "a_method") as mock_method:
-            test_object = TestClass()
-            result = test_object.a_property
-            result = test_object.a_property
+        with patch.object(TestClass, "a_method") as mock_a_method:
+            mock_a_method.return_value = 10
 
-            mock_method.assert_called_once()
+            instance_of_test_class = TestClass()
+            res = instance_of_test_class.a_property
+            self.assertEqual(instance_of_test_class.a_property, res)
+            mock_a_method.assert_called_once()
 
 
 if __name__ == "__main__":
