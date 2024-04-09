@@ -8,7 +8,8 @@ using the `parameterized` decorator.
 
 import unittest
 from parameterized import parameterized
-from utils import access_nested_map
+from utils import access_nested_map, get_json
+from unittest.mock import patch, Mock
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -43,6 +44,25 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         with self.assertRaises(error):
             self.assertEqual(access_nested_map(nested_map, path))
+
+
+class TestGetJson(unittest.TestCase):
+    """Test get_json"""
+    @parameterized.expand(
+        [
+            ("http://example.com", {"payload": True}),
+            ("http://holberton.io", {"payload": False}),
+        ]
+    )
+
+    @patch("requests.get")
+    def test_get_json(self, url, payload, mock_get):
+        """Test get_json"""
+        mock_json = Mock(return_value=payload)
+        mock_get.return_value = mock_json
+        result = get_json(url)
+        self.assertEqual(result, payload)
+        mock_get.assert_called_once_with(url)
 
 
 if __name__ == "__main__":
