@@ -9,7 +9,6 @@ using the `parameterized` decorator.
 import unittest
 from parameterized import parameterized
 from utils import access_nested_map
-from typing import Any, Dict, Tuple
 
 
 class TestAccessNestedMap(unittest.TestCase):
