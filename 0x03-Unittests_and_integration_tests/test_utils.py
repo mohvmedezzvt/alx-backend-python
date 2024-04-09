@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Parameterize a unit test
+"""Test for utils.py
+
+This module contains a unit test for the `access_nested_map` function.
+The `TestAccessNestedMap` class defines the unit test cases using the `parameterized` decorator.
 """
 
 import unittest
@@ -10,7 +13,10 @@ from typing import Any, Dict, Tuple
 
 class TestAccessNestedMap(unittest.TestCase):
     """Test access_nested_map
+
+    This class defines the unit test cases for the `access_nested_map` function.
     """
+
     @parameterized.expand(
         [
             ({"a": 1}, "a", 1),
@@ -23,6 +29,9 @@ class TestAccessNestedMap(unittest.TestCase):
                                path: Tuple[str, ...],
                                expected: Any) -> None:
         """Test access_nested_map
+
+        This method tests the `access_nested_map` function by passing different inputs
+        and asserting that the returned value matches the expected value.
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
