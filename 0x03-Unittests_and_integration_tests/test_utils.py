@@ -26,12 +26,7 @@ class TestAccessNestedMap(unittest.TestCase):
         ]
     )
     def test_access_nested_map(self, nested_map, path, expected) -> None:
-        """Test access_nested_map
-
-        This method tests the `access_nested_map` function by passing different
-        inputs
-        and asserting that the returned value matches the expected value.
-        """
+        """Test access_nested_map"""
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand(
